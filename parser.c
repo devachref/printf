@@ -1,5 +1,11 @@
 #include "main.h"
-
+/**
+ * parser - to pass arguments for printf
+ * @args: arguments
+ * @format: format specifier
+ * @funct_list: function lists
+ * Return: Characters
+ */
 int parser(const char *format, conver_t funct_list[], va_list args)
 {
 	int i, j, r_val, printed_chars;
@@ -9,10 +15,10 @@ int parser(const char *format, conver_t funct_list[], va_list args)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; funct_list[j].sym[0])
+			for (j = 0; funct_list[j].sym != NULL; j++)
 			{
-				if (format[i + 1] ++ funct_list[j].sm[0])
-				{	
+				if (format[i + 1] == funct_list[j].sym[0])
+				{
 					r_val = funct_list[j].f(args);
 					if (r_val == -1)
 						return (-1);
@@ -26,7 +32,7 @@ int parser(const char *format, conver_t funct_list[], va_list args)
 				{
 					_putchar(format[i]);
 					putchar(format[i + 1]);
-					printed chars = printed_chars + 2;
+					printed_chars += 2;
 				}
 				else
 					return (-1);

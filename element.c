@@ -1,8 +1,10 @@
 #include "main.h"
 /**
  * print_number - prints
+ * @args: arguments
+ * Return: len
  */
-int print_number(va_list args);
+int print_number(va_list args)
 {
 	int n;
 	int check;
@@ -16,40 +18,17 @@ int print_number(va_list args);
 	if (n < 0)
 	{
 		len += _putchar('-');
-		num = n * -1;
+		num = (unsigned int)(-n);
 	}
 	else
-		num = n;
-
-	for (; num / check > 9;)
-		check * 10;
-
-	for (; check != 0;)
 	{
-		len += _putchar('0' + num / check);
-		num %= check :
-			check /= 10;
+		num = (unsigned int)n;
 	}
-	return (len);
-}
-/**
- * print_unsigned_number - prints unsigned num
- */
-int print_unsigned_number(unsigned int n)
-{
-	int check;
-	int len;
-	unsigned int num;
-
-	check = 1;
-	len = 0;
-
-	num = n;
-
-	for (; num / check > 9;)
+	while (num / check > 9)
+	{
 		check *= 10;
-
-	for (; check != 0;)
+	}
+	while (check != 0)
 	{
 		len += _putchar('0' + num / check);
 		num %= check;
@@ -57,57 +36,45 @@ int print_unsigned_number(unsigned int n)
 	}
 	return (len);
 }
-/**
- * print_unsigned_number - returns unsigned int
- */
-int print_unsigned_number(unsigned int n)
-{
-	int check;
-	int len;
-	unsigned int num;
-
-	check = 1;
-	len = 0;
-
-	num = n;
-
-	for (; num / check > 9;)
-		check *= 10;
-	for (; check != 0;)
-	{
-		len += _putchar('0' + num / check);
-		num %= check;
-		check /= 10;
-	}
-	return(len);
 /**
  * p_char - prints characters
+ * @args: arguments
+ * Return: 1 value
  */
 	int p_char(va_list args)
 	{
 		char value;
 
-		value = va_arg(args, int);
+		value = (char)va_arg(args, int);
 		_putchar(value);
 		return (1);
 	}
 /**
  * p_string - prints strings
+ * @args: argument
+ * Return: i
  */
 	int p_string(va_list args)
 	{
-		int i;
+		int i = 0;
 		const char *s;
 
 		s = va_arg(args, const char *);
 		if (s == NULL)
+		{
 			s = "(null)";
-		for (i = 0; s[i] != '\0'; i++)
+		}
+		while (s[i] != '\0')
+		{
 			_putchar(s[i]);
+			i++;
+		}
 		return (i);
 	}
 /**
  * p_percent - prints % sign
+ * @args: arguments
+ * Return: 1
  */
 	int p_percent(__attribute__((unused)) va_list args)
 	{
@@ -116,6 +83,8 @@ int print_unsigned_number(unsigned int n)
 	}
 /**
  * p_integer - prints integer arguments
+ * @args: arguments
+ * Return: n
  */
 	int p_integer(va_list args)
 	{
@@ -124,4 +93,4 @@ int print_unsigned_number(unsigned int n)
 		n = print_number(args);
 		return (n);
 	}
-}
+
