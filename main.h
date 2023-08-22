@@ -81,6 +81,7 @@ int _putchar(int c);
 int _printf(const char *format, ...);
 void _vprintf(const char *format, va_list args);
 int parser(const char *format, conver_t funct_list[], va_list args);
+<<<<<<< HEAD
 
 /*print_functions.c module */
 int p_char(va_list ap, params_t *params);
@@ -131,4 +132,14 @@ int _printf(const char *format, ...);
 /*int p_integer(va_list args);*/
 /*int print_unsigned_number(unsigned int n);*/
 /*int print_number(va_list);*/
+=======
+int p_char(va_list);
+int p_string(va_list args);
+int p_percent(va_list);
+int p_integer(va_list args);
+int p_integer(va_list args);
+int print_unsigned_number(unsigned int n);
+int print_number(va_list);
+int p_binary(va_list args);
+>>>>>>> 898b19c258b461452d2a664c6ff7f4f0f9a2e110
 #endif
