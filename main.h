@@ -25,4 +25,5 @@ int p_integer(va_list args);
 int p_integer(va_list args);
 int print_unsigned_number(unsigned int n);
 int print_number(va_list);
+int p_binary(va_list args);
 #endif
