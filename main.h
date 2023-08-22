@@ -75,9 +75,8 @@ typedef struct specifier
 /*typedef struct convert conver_t;*/
 
 
-int _putchar(char c);
 int _puts(char *str);
-/*int _putchar(int c);*/
+int _putchar(int c);
 int _printf(const char *format, ...);
 void _vprintf(const char *format, va_list args);
 int parser(const char *format, conver_t funct_list[], va_list args);
