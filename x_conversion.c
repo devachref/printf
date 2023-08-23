@@ -19,9 +19,6 @@ int p_hex(va_list args)
 		value /= 16;
 	}
 	while (value > 0);
-
-	printed = 0;
-
 	while (index > 0)
 	{
 		_putchar(hex[--index]);
